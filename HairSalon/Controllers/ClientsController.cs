@@ -21,8 +21,8 @@ namespace HairSalon.Controllers
     public ActionResult CreateForm()
     {
       List<Stylist> listStylists = Stylist.GetAll();
-      return new EmptyResult(); //Test 1 will fail
-      // return View(0); //Test 2 will fail
+      // return new EmptyResult(); //Test 1 will fail
+      return View(0); //Test 2 will fail
       // return View(listStylists); //Test will pass
     }
     // [HttpPost("/items")]
