@@ -25,14 +25,14 @@ namespace HairSalon.Controllers
       // return View(0); //Test 2 will fail
       return View(listStylists); //Test will pass
     }
-    // [HttpPost("/items")]
-    // public ActionResult Create()
-    // {
-    //   Client newClient = new Client (Request.Form["newClient"]);
-    //   newClient.Save();
-    //   List<Client> allClients = Client.GetAll();
-    //   return View("Index", allClients);
-    // }
+    [HttpPost("/items")]
+    public ActionResult Create()
+    {
+      Client newClient = new Client (Request.Form["newClient"], int.Parse(Request.Form["stylistId"]));
+      newClient.Save();
+      List<Client> allClients = Client.GetAll();
+      return View("Index", allClients);
+    }
     // [HttpGet("/items/{id}/update")]
     // public ActionResult UpdateForm(int id)
     // {

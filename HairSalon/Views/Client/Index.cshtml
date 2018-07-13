@@ -11,9 +11,9 @@
   @foreach(var item in Model)
   {
   <tr>
-    <td>@category.GetClientName()</a></td>
-    <td><a href="/items/@category.GetClientId()/update">Edit</a></td>
-    <td><a href="/items/@category.GetClientId()/delete">Delete</a></td>
+    <td>@item.GetClientName()</td>
+    <td><a href="/items/@item.GetClientId()/update">Edit</a></td>
+    <td><a href="/items/@item.GetClientId()/delete">Delete</a></td>
   </tr>
   }
 </table>

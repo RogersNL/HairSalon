@@ -1,7 +1,14 @@
-<h1>Add a new Stylist</h1>
-<p><a href='/categories'>Back to List<a/></p>
-<form action="/categories" method="post">
-  <label for="newStylist">Add a new stylist</label>
-  <input id="newStylist" name="newStylist" type="text">
+<h1>Add a new Client</h1>
+<p><a href='/items'>Back to List<a/></p>
+<form action="/items" method="post">
+  <label for="newClient">Add a new client</label>
+  <input id="newClient" name="newClient" type="text">
+  <select class="form-control" id="stylist" name="stylistId">
+    @foreach(var category in Model)
+    {
+      <option value="@category.GetStylistId()">@category.GetStylistName()</option>
+    }
+
+  </select>
   <button type="submit">Submit</button>
 </form>
