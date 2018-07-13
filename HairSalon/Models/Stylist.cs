@@ -90,8 +90,8 @@ namespace HairSalon.Models
       {
           conn.Dispose();
       }
-      return new List<Stylist>{};
-      // return allStylists; //Test will pass
+      // return new List<Stylist>{}; //Test will fail
+      return allStylists; //Test will pass
 
     }
   }
