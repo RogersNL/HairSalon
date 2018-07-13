@@ -39,5 +39,21 @@ namespace HairSalon.Tests
       //Assert
       Assert.AreEqual(testClient, result);
     }
+    [TestMethod]
+    public void Edit_Test()
+    {
+      //Arrange
+      Client testClient = new Client("Naruto", 2);
+      testClient.Save();
+      Client oldClient = new Client("Naruto",3, testClient.GetClientId());
+      //Act
+      testClient.Edit("Hokage", 3);
+
+      Client result = Client.Find(testClient.GetClientId());
+      //Assert
+
+      Assert.AreEqual(testClient, result);
+
+    }
   }
 }

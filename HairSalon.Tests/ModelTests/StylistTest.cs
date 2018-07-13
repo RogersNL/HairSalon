@@ -61,8 +61,8 @@ namespace HairSalon.Tests
       testStylist.Save();
       Stylist newTestStylist = new Stylist("Nate");
       newTestStylist.Save();
-      List<Stylist> beforeDeleteList = new List<Stylist>{testStylist, newTestStylist};
-      List<Stylist> afterDeleteList = new List<Stylist>{newTestStylist};
+      List<Stylist> beforeDeleteList = new List<Stylist>{testStylist, newTestStylist}; //Use to make test fail
+      List<Stylist> afterDeleteList = new List<Stylist>{newTestStylist}; //Use to make test pass
 
       //Act
       Stylist.Find(testStylist.GetStylistId()).Delete();
