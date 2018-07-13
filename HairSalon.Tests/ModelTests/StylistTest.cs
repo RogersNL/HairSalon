@@ -51,7 +51,7 @@ namespace HairSalon.Tests
       testStylist.Edit(updateName);
       string result = Stylist.Find(testStylist.GetStylistId()).GetStylistName();
       //Assert
-      Assert.AreEqual(testName, result);
+      Assert.AreEqual(updateName, result);
     }
   }
 }
