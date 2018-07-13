@@ -68,7 +68,7 @@ namespace HairSalon.Tests
       Stylist.Find(testStylist.GetStylistId()).Delete();
       List<Stylist> result = Stylist.GetAll();
       //Assert
-      CollectionAssert.AreEqual(beforeDeleteList, result);
+      CollectionAssert.AreEqual(afterDeleteList, result);
     }
   }
 }
