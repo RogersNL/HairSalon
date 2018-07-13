@@ -1,4 +1,10 @@
-<h1>@Model.GetStylistName()</h1>
-
+<h1>Stylist Clients:</h1>
+<ul>
+  @foreach(var item in Model)
+  {
+  <li>@item.GetClientName()</li>
+  }
+</ul>
+<p><a href='/items/new'>Add another client</a></p>
 <p><a href='/categories/new'>Add another stylist</a></p>
 <p><a href='/categories'>View all stylists</a></p>

@@ -102,6 +102,32 @@ namespace HairSalon.Models
       // return new List<Client>{}; //Test will fail
       return allClients; //Test will pass
     }
+    public static List<Client> GetClientsById(int id)
+    {
+      List<Client> allClients = new List<Client> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM clients WHERE stylist_Id = @stylist_Id ;";
+
+      cmd.Parameters.Add(new MySqlParameter("@stylist_Id", id));
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int ClientId = rdr.GetInt32(0);
+        string ClientName = rdr.GetString(1);
+        int Stylist_Id = rdr.GetInt32(2);
+        Client newClient = new Client(ClientName, Stylist_Id, ClientId);
+        allClients.Add(newClient);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+          conn.Dispose();
+      }
+      // return new List<Client>{}; //Test will fail
+      return allClients; //Test will pass
+    }
     public static Client Find(int id)
     {
       MySqlConnection conn = DB.Connection();
