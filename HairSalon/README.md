@@ -32,6 +32,10 @@ _Specs:_
   \> USE `nick_rogers`;  
   \> CREATE TABLE `stylists` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255));  
   \> CREATE TABLE `clients` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255), `Stylist_Id` INT);
+  \> CREATE DATABASE `nick_rogers_test`;  
+  \> USE `nick_rogers_test`;  
+  \> CREATE TABLE `stylists` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255));  
+  \> CREATE TABLE `clients` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255), `Stylist_Id` INT);
 
 ## Known Bugs
 
