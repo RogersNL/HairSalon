@@ -23,7 +23,7 @@ namespace HairSalon.Controllers
       // return new EmptyResult(); //Test will fail
       return View(); //Test will pass
     }
-    
+
     [HttpPost("/categories")]
     public ActionResult Create()
     {
@@ -32,20 +32,20 @@ namespace HairSalon.Controllers
       List<Stylist> allStylists = Stylist.GetAll();
       return View("Index", allStylists);
     }
-    // [HttpGet("/categories/{id}/update")]
-    // public ActionResult UpdateForm(int id)
-    // {
-    //     Stylist thisStylist = Stylist.Find(id);
-    //     return View(thisStylist);
-    // }
-    // [HttpPost("/categories/{id}/update")]
-    // public ActionResult Update(int id)
-    // {
-    //     Stylist thisStylist = Stylist.Find(id);
-    //     thisStylist.Edit(Request.Form["newname"]);
-    //     return RedirectToAction("Index");
-    // }
-    //
+    [HttpGet("/categories/{id}/update")]
+    public ActionResult UpdateForm(int id)
+    {
+        Stylist thisStylist = Stylist.Find(id);
+        return View(thisStylist);
+    }
+    [HttpPost("/categories/{id}/update")]
+    public ActionResult Update(int id)
+    {
+        Stylist thisStylist = Stylist.Find(id);
+        thisStylist.Edit(Request.Form["updateStylist"]);
+        return RedirectToAction("Index");
+    }
+
     // [HttpGet("/categories/{id}/delete")]
     // public ActionResult Delete(int id)
     // {
