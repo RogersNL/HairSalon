@@ -35,17 +35,31 @@ namespace HairSalon.Tests
       //Assert
       Assert.IsInstanceOfType(result, typeof(List<Client>));
     }
-    // [TestMethod]
-    // public void CreateForm_ReturnsCorrectView_True()
-    // {
-    //   //Arrange
-    //   ClientController controller = new ClientController();
-    //
-    //   //Act
-    //   ActionResult createFormView = controller.CreateForm();
-    //
-    //   //Assert
-    //   Assert.IsInstanceOfType(createFormView, typeof(ViewResult));
-    // }
+    [TestMethod]
+    public void CreateForm_ReturnsCorrectView_True()
+    {
+      //Arrange
+      ClientController controller = new ClientController();
+
+      //Act
+      ActionResult createFormView = controller.CreateForm();
+
+      //Assert
+      Assert.IsInstanceOfType(createFormView, typeof(ViewResult));
+    }
+    [TestMethod]
+    public void CreateForm_HasCorrectModelType_SylistList()
+    {
+      //Arrange
+      ClientController controller = new ClientController();
+      IActionResult actionResult = controller.CreateForm();
+      ViewResult createFormView = controller.CreateForm() as ViewResult;
+
+      //Act
+      var result = createFormView.ViewData.Model;
+
+      //Assert
+      Assert.IsInstanceOfType(result, typeof(List<Stylist>));
+    }
   }
 }

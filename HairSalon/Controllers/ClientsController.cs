@@ -8,7 +8,7 @@ namespace HairSalon.Controllers
   public class ClientController : Controller
   {
 
-    [HttpGet("/categories")]
+    [HttpGet("/items")]
     public ActionResult Index()
     {
         List<Client> allClients = Client.GetAll();
@@ -17,13 +17,15 @@ namespace HairSalon.Controllers
         return View(allClients);  //Test will pass
     }
 
-    // [HttpGet("/categories/new")]
-    // public ActionResult CreateForm()
-    // {
-    //   // return new EmptyResult(); //Test will fail
-    //   return View(); //Test will pass
-    // }
-    // [HttpPost("/categories")]
+    [HttpGet("/items/new")]
+    public ActionResult CreateForm()
+    {
+      List<Stylist> listStylists = Stylist.GetAll();
+      return new EmptyResult(); //Test 1 will fail
+      // return View(0); //Test 2 will fail
+      // return View(listStylists); //Test will pass
+    }
+    // [HttpPost("/items")]
     // public ActionResult Create()
     // {
     //   Client newClient = new Client (Request.Form["newClient"]);
@@ -31,13 +33,13 @@ namespace HairSalon.Controllers
     //   List<Client> allClients = Client.GetAll();
     //   return View("Index", allClients);
     // }
-    // [HttpGet("/categories/{id}/update")]
+    // [HttpGet("/items/{id}/update")]
     // public ActionResult UpdateForm(int id)
     // {
     //     Client thisClient = Client.Find(id);
     //     return View(thisClient);
     // }
-    // [HttpPost("/categories/{id}/update")]
+    // [HttpPost("/items/{id}/update")]
     // public ActionResult Update(int id)
     // {
     //     Client thisClient = Client.Find(id);
@@ -45,14 +47,14 @@ namespace HairSalon.Controllers
     //     return RedirectToAction("Index");
     // }
     //
-    // [HttpGet("/categories/{id}/delete")]
+    // [HttpGet("/items/{id}/delete")]
     // public ActionResult Delete(int id)
     // {
     //     Client thisClient = Client.Find(id);
     //     thisClient.Delete();
     //     return RedirectToAction("Index");
     // }
-    // [HttpPost("/categories/delete")]
+    // [HttpPost("/items/delete")]
     // public ActionResult DeleteAll()
     // {
     //   Client.ClearAll();
