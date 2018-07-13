@@ -13,8 +13,8 @@ namespace HairSalon.Controllers
     {
         List<Stylist> allStylists = Stylist.GetAll();
         // return new EmptyResult(); //Test 1 will fail
-        return View(0); //Test 2 will fail
-        // return View(allStylists);  //Test will pass
+        // return View(0); //Test 2 will fail
+        return View(allStylists);  //Test will pass
     }
 
     // [HttpGet("/categories/new")]
