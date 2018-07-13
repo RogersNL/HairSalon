@@ -123,5 +123,24 @@ namespace HairSalon.Models
      // return new Stylist("", 0); //Test will fail
      return newStylist; //Test will pass
     }
+    public void Edit(string newName)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE stylists SET Name = @newName WHERE id = @searchId;";
+
+      cmd.Parameters.Add(new MySqlParameter("@searchId", _stylistId));
+      cmd.Parameters.Add(new MySqlParameter("@newName", newName));
+
+      cmd.ExecuteNonQuery();
+      _stylistName = newName;
+
+      conn.Close();
+      if (conn != null)
+      {
+          conn.Dispose();
+      }
+    }
   }
 }

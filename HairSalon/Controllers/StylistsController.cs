@@ -23,6 +23,7 @@ namespace HairSalon.Controllers
       // return new EmptyResult(); //Test will fail
       return View(); //Test will pass
     }
+    
     [HttpPost("/categories")]
     public ActionResult Create()
     {
