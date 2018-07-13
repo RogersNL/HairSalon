@@ -20,8 +20,8 @@ namespace HairSalon.Controllers
     [HttpGet("/categories/new")]
     public ActionResult CreateForm()
     {
-      return new EmptyResult(); //Test will fail
-      // return View(); //Test will pass
+      // return new EmptyResult(); //Test will fail
+      return View(); //Test will pass
     }
     // [HttpPost("/categories")]
     // public ActionResult Create()
