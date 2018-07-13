@@ -120,8 +120,8 @@ namespace HairSalon.Models
      {
          conn.Dispose();
      }
-     return new Stylist("", 0); //Test will fail
-     // return newStylist; //Test will pass
+     // return new Stylist("", 0); //Test will fail
+     return newStylist; //Test will pass
     }
   }
 }
