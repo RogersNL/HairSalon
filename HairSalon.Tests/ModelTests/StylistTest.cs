@@ -28,16 +28,16 @@ namespace HairSalon.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
-    // [TestMethod]
-    // public void Find_Test()
-    // {
-    //   //Arrange
-    //   Stylist testStylist = new Stylist("Jack");
-    //   testStylist.Save();
-    //   //Act
-    //   Stylist result = Stylist.Find(testStylist.GetStylistId());
-    //   //Assert
-    //   Assert.AreEqual(testStylist, result);
-    // }
+    [TestMethod]
+    public void Find_Test()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Jack");
+      testStylist.Save();
+      //Act
+      Stylist result = Stylist.Find(testStylist.GetStylistId());
+      //Assert
+      Assert.AreEqual(testStylist, result);
+    }
   }
 }
