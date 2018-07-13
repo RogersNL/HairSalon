@@ -8,8 +8,8 @@ namespace HairSalon.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-            // return View(); //Test will pass
-            return new EmptyResult(); //Test will fail
+            return View(); //Test will pass
+            // return new EmptyResult(); //Test will fail
         }
     }
 }
