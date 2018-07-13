@@ -61,10 +61,10 @@ namespace HairSalon.Controllers
     [HttpGet("/categories/{id}")]
     public ActionResult Details(int id)
     {
-        Stylist item = Stylist.Find(id);
-        // return new EmptyResult(); //Test 1 will fail
-        // return View(0); //Test 2 will fail
-        return View(item); //Test will pass
+      Stylist item = Stylist.Find(id);
+      // return new EmptyResult(); //Test 1 will fail
+      // return View(0); //Test 2 will fail
+      return View(item); //Test will pass
     }
   }
 }
