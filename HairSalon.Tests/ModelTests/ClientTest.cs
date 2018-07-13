@@ -69,7 +69,7 @@ namespace HairSalon.Tests
       Client.Find(testClient.GetClientId()).Delete();
       List<Client> result = Client.GetAll();
       //Assert
-      CollectionAssert.AreEqual(beforeDeleteList, result);
+      CollectionAssert.AreEqual(afterDeleteList, result);
     }
   }
 }
