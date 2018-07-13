@@ -17,11 +17,12 @@ namespace HairSalon.Controllers
         return View(allStylists);  //Test will pass
     }
 
-    // [HttpGet("/categories/new")]
-    // public ActionResult CreateForm()
-    // {
-    //     return View();
-    // }
+    [HttpGet("/categories/new")]
+    public ActionResult CreateForm()
+    {
+      return new EmptyResult(); //Test will fail
+      // return View(); //Test will pass
+    }
     // [HttpPost("/categories")]
     // public ActionResult Create()
     // {
