@@ -131,8 +131,8 @@ namespace HairSalon.Models
       {
           conn.Dispose();
       }
-      return new Client("", 0, 0); //Test will fail
-      // return newClient; //Test will pass
+      // return new Client("", 0, 0); //Test will fail
+      return newClient; //Test will pass
     }
   }
 }
