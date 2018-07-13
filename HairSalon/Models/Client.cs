@@ -134,20 +134,20 @@ namespace HairSalon.Models
       // return new Client("", 0, 0); //Test will fail
       return newClient; //Test will pass
     }
-    public void Edit(string newName, int newStylist_Id)
+    public void Edit(string newName)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE clients SET Name = @newName, stylist_Id = @newStylist_Id WHERE id = @searchId;";
+      cmd.CommandText = @"UPDATE clients SET Name = @newName WHERE id = @searchId;";
 
       cmd.Parameters.Add(new MySqlParameter("@searchId", _clientId));
       cmd.Parameters.Add(new MySqlParameter("@newName", newName));
-      cmd.Parameters.Add(new MySqlParameter("@newStylist_Id", newStylist_Id));
+      //cmd.Parameters.Add(new MySqlParameter("@newStylist_Id", newStylist_Id));
 
       cmd.ExecuteNonQuery();
       _clientName = newName;
-      _stylist_Id = newStylist_Id;
+      //_stylist_Id = newStylist_Id;
       conn.Close();
       if (conn != null)
       {

@@ -46,19 +46,14 @@ namespace HairSalon.Controllers
         return RedirectToAction("Index");
     }
 
-    // [HttpGet("/categories/{id}/delete")]
-    // public ActionResult Delete(int id)
-    // {
-    //     Stylist thisStylist = Stylist.Find(id);
-    //     thisStylist.Delete();
-    //     return RedirectToAction("Index");
-    // }
-    // [HttpPost("/categories/delete")]
-    // public ActionResult DeleteAll()
-    // {
-    //   Stylist.ClearAll();
-    //   return View();
-    // }
+    [HttpGet("/categories/{id}/delete")]
+    public ActionResult Delete(int id)
+    {
+        Stylist thisStylist = Stylist.Find(id);
+        thisStylist.Delete();
+        return RedirectToAction("Index");
+    }
+  
     [HttpGet("/categories/{id}")]
     public ActionResult Details(int id)
     {

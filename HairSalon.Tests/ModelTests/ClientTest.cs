@@ -43,11 +43,11 @@ namespace HairSalon.Tests
     public void Edit_Test()
     {
       //Arrange
-      Client testClient = new Client("Naruto", 2);
+      Client testClient = new Client("Naruto");
       testClient.Save();
-      Client oldClient = new Client("Naruto",3, testClient.GetClientId());
+      Client oldClient = new Client("Naruto", testClient.GetClientId());
       //Act
-      testClient.Edit("Hokage", 3);
+      testClient.Edit("Hokage");
 
       Client result = Client.Find(testClient.GetClientId());
       //Assert

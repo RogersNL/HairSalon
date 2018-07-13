@@ -47,32 +47,26 @@ namespace HairSalon.Controllers
       List<Client> allClients = Client.GetAll();
       return View("Index", allClients);
     }
-    // [HttpGet("/items/{id}/update")]
-    // public ActionResult UpdateForm(int id)
-    // {
-    //     Client thisClient = Client.Find(id);
-    //     return View(thisClient);
-    // }
-    // [HttpPost("/items/{id}/update")]
-    // public ActionResult Update(int id)
-    // {
-    //     Client thisClient = Client.Find(id);
-    //     thisClient.Edit(Request.Form["newname"]);
-    //     return RedirectToAction("Index");
-    // }
-    //
-    // [HttpGet("/items/{id}/delete")]
-    // public ActionResult Delete(int id)
-    // {
-    //     Client thisClient = Client.Find(id);
-    //     thisClient.Delete();
-    //     return RedirectToAction("Index");
-    // }
-    // [HttpPost("/items/delete")]
-    // public ActionResult DeleteAll()
-    // {
-    //   Client.ClearAll();
-    //   return View();
-    // }
+    [HttpGet("/items/{id}/update")]
+    public ActionResult UpdateForm(int id)
+    {
+        Client thisClient = Client.Find(id);
+        return View(thisClient);
+    }
+    [HttpPost("/items/{id}/update")]
+    public ActionResult Update(int id)
+    {
+        Client thisClient = Client.Find(id);
+        thisClient.Edit(Request.Form["updateClient"]);
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet("/items/{id}/delete")]
+    public ActionResult Delete(int id)
+    {
+        Client thisClient = Client.Find(id);
+        thisClient.Delete();
+        return RedirectToAction("Index");
+    }
   }
 }
