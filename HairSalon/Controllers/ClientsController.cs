@@ -12,8 +12,8 @@ namespace HairSalon.Controllers
     public ActionResult Index()
     {
         List<Client> allClients = Client.GetAll();
-        return new EmptyResult(); //Test 1 will fail
-        // return View(0); //Test 2 will fail
+        // return new EmptyResult(); //Test 1 will fail
+        return View(0); //Test 2 will fail
         // return View(allClients);  //Test will pass
     }
 
