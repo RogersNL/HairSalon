@@ -26,6 +26,8 @@ namespace HairSalon.Tests
       List<Stylist> testList = new List<Stylist>{testStylist};
       List<Stylist> result = Stylist.GetAll();
       //Assert
+      Console.WriteLine(testList.Count);
+      Console.WriteLine(result.Count);
       CollectionAssert.AreEqual(testList, result);
     }
     [TestMethod]
@@ -69,6 +71,27 @@ namespace HairSalon.Tests
       List<Stylist> result = Stylist.GetAll();
       //Assert
       CollectionAssert.AreEqual(afterDeleteList, result);
+    }
+    [TestMethod]
+    public void GetSpecialties_Test()
+    {
+      //Arrange
+      Stylist newStylist = new Stylist("Luffy");
+      newStylist.Save();
+      Specialty newSpecialty = new Specialty("Haki");
+      newSpecialty.Save();
+      Specialty newSpecialty1 = new Specialty("Gum Gum Devil Fruit");
+      newSpecialty1.Save();
+
+      //Act
+      newStylist.AddSpecialty(newSpecialty);
+      newStylist.AddSpecialty(newSpecialty1);
+
+      List<Specialty> expectedResult = new List<Specialty>{newSpecialty, newSpecialty1};
+      List<Specialty> result = newStylist.GetSpecialties();
+
+      //Assert
+      CollectionAssert.AreEqual(expectedResult, result);
     }
   }
 }
