@@ -20,7 +20,15 @@ _Specs:_
 4. _Let user view a list of clients under the details page of each stylist._
   - _Example Input: user navigates to Jack details page._
   - _Example Output: user sees Nancy and only other clients of Jack._
-
+5. _Let user view a list of specialties that a stylist can perform.
+  - _Example Input: user enters "buzz cut" as a specialty.
+  - _Example Output: user sees "buzz cut" in the list of specialties.
+6. _Let user add specialties to many stylists._
+  - _Example Input: user links "buzz cut" to Jack._
+  - _Example Output: user sees that Jack in the list of stylists under "buzz cut"._
+7. _Let user add stylists to many specialties._
+  - _Example Input: user links Jack to "mullet".
+  - _Example Output: user sees Jack can do "mullet" hairstyles.
 ## Setup/Installation Requirements
 
 * _Clone repository and open with mono_
@@ -32,10 +40,14 @@ _Specs:_
   \> USE `nick_rogers`;  
   \> CREATE TABLE `stylists` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255));  
   \> CREATE TABLE `clients` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255), `Stylist_Id` INT);
+  \> CREATE TABLE `specialties` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255));
+  \> CREATE TABLE `stylists_specialties` ( `Id` serial PRIMARY KEY, `stylists_id` INT, `specialties_id` INT);
   \> CREATE DATABASE `nick_rogers_test`;  
   \> USE `nick_rogers_test`;  
   \> CREATE TABLE `stylists` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255));  
   \> CREATE TABLE `clients` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255), `Stylist_Id` INT);
+  \> CREATE TABLE `specialties` ( `Id` serial PRIMARY KEY, `Name` VARCHAR(255));
+  \> CREATE TABLE `stylists_specialties` ( `Id` serial PRIMARY KEY, `stylists_id` INT, `specialties_id` INT);
 
 ## Known Bugs
 
@@ -47,7 +59,7 @@ _Nick Rogers email: amellocello@msn.com_
 
 ## Technologies Used
 
-_Created with Atom editor.  Use mono to view. Use PHPMyAdmin to store information._
+_Created with Atom editor.  Use mono to view. Use PHPMyAdmin Database to store information._
 
 ### License
 
