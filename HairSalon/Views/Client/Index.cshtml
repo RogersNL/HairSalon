@@ -1,18 +1,19 @@
 <h1>Clients</h1>
-<p><a href='/items/new'>Add a New Client<a/></p>
+<p><a href='/clients/new'>Add a New Client<a/></p>
 <p><a href='/'>Back to Home<a/></p>
+<hr/>
 <table>
   <tr>
     <th>Name</th>
     <th>Update</th>
     <th>Delete</th>
   </tr>
-  @foreach(var item in Model)
+  @foreach(var client in Model)
   {
   <tr>
-    <td>@item.GetClientName()</td>
-    <td><a href="/items/@item.GetClientId()/update">Edit</a></td>
-    <td><a href="/items/@item.GetClientId()/delete">Delete</a></td>
+    <td>@client.GetClientName()</td>
+    <td><a href="/clients/@client.GetClientId()/update">Edit</a></td>
+    <td><a href="/clients/@client.GetClientId()/delete">Delete</a></td>
   </tr>
   }
 </table>

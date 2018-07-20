@@ -8,7 +8,7 @@ namespace HairSalon.Controllers
   public class ClientController : Controller
   {
 
-    [HttpGet("/items")]
+    [HttpGet("/clients")]
     public ActionResult Index()
     {
       List<Client> allClients = Client.GetAll();
@@ -16,14 +16,14 @@ namespace HairSalon.Controllers
       // return View(0); //Test 2 will fail
       return View(allClients);  //Test will pass
     }
-    [HttpGet("/items/prevent")]
+    [HttpGet("/clients/prevent")]
     public ActionResult PreventSubmit()
     {
       // return new EmptyResult(); //Test 1 will fail
       // return View(0); //Test 2 will fail
       return View();  //Test will pass
     }
-    [HttpGet("/items/new")]
+    [HttpGet("/clients/new")]
     public ActionResult CreateForm()
     {
       List<Stylist> listStylists = Stylist.GetAll();
@@ -39,7 +39,7 @@ namespace HairSalon.Controllers
       }
 
     }
-    [HttpPost("/items")]
+    [HttpPost("/clients")]
     public ActionResult Create()
     {
       Client newClient = new Client (Request.Form["newClient"], int.Parse(Request.Form["stylistId"]));
@@ -47,13 +47,13 @@ namespace HairSalon.Controllers
       List<Client> allClients = Client.GetAll();
       return View("Index", allClients);
     }
-    [HttpGet("/items/{id}/update")]
+    [HttpGet("/clients/{id}/update")]
     public ActionResult UpdateForm(int id)
     {
         Client thisClient = Client.Find(id);
         return View(thisClient);
     }
-    [HttpPost("/items/{id}/update")]
+    [HttpPost("/clients/{id}/update")]
     public ActionResult Update(int id)
     {
         Client thisClient = Client.Find(id);
@@ -61,7 +61,7 @@ namespace HairSalon.Controllers
         return RedirectToAction("Index");
     }
 
-    [HttpGet("/items/{id}/delete")]
+    [HttpGet("/clients/{id}/delete")]
     public ActionResult Delete(int id)
     {
         Client thisClient = Client.Find(id);
